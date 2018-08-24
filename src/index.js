@@ -12,20 +12,17 @@ import habitat from "preact-habitat";
 
 import Widget from "./components/nav-container";
 
-export class DPSNavigation {
-  
- static init(options) {
-   let _habitat = habitat(Widget);
-   _habitat.render({
-     selector: `[id=${options.id}]`,
-     clean: true
-   });
-  }
+export default function init(options) {
+  let _habitat = habitat(Widget);
+  _habitat.render({
+    selector: `[id=${options.id}]`,
+    clean: true
+  });
 }
 
-let _habitat = habitat(Widget);
-_habitat.render({
-  selector: `#index`,
-  clean: true
-});
+// let _habitat = habitat(Widget);
+// _habitat.render({
+//   selector: `#index`,
+//   clean: true
+// });
 //DPSNavigation.init({id:"index"})

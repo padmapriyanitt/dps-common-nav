@@ -2,7 +2,7 @@
   "name": "dps-navigation",
   "version": "1.0.0",
   "description": "A ready to use simple webpack boilerplate",
-  "main": "src/index.js",
+  "main": "dist/main.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production"

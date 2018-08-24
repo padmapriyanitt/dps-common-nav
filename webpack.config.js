@@ -6,6 +6,11 @@ const htmlWebpackPlugin = new HtmlWebPackPlugin({
   filename: "./index.html"
 });
 module.exports = {
+  output: {
+    filename: 'main.js',
+    library: 'DPSNav',
+    libraryTarget: 'umd'
+  },
   module: {
     rules: [
       {

@@ -12,7 +12,7 @@ import habitat from "preact-habitat";
 
 import Widget from "./components/nav-container";
 
-export default function init(options) {
+export function init(options) {
   let _habitat = habitat(Widget);
   _habitat.render({
     selector: `[id=${options.id}]`,

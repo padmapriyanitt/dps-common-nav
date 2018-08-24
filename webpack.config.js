@@ -56,5 +56,5 @@ module.exports = {
       }
     ]
   },
-  plugins: [htmlWebpackPlugin,new CopyWebpackPlugin([{ from: 'src/assets/images', to: 'images' }])]
+  plugins: [htmlWebpackPlugin, new CopyWebpackPlugin([{ from: 'src/assets/images', to: 'assets/images' }])]
 };

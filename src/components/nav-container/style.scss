@@ -1,0 +1,159 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #666;
+    background: #eee;
+}
+
+/* Nav container styles */
+
+.navContainer {
+	position: fixed;
+    width: 250px;
+    top: 0;
+	bottom: 0;
+	left:0;
+    background: #323544;
+	color: #b8bec4;
+	font-size: 16px;
+	z-index: 1;
+	overflow: hidden;
+	-webkit-font-smoothing: antialiased;
+    transition: width 0.8s ease 0s;
+}
+
+.navContainer.collapsed {
+	width: 50px;
+}
+
+.collapsed > .dpLogo {
+	& > img {
+		width: 30px;
+		-webkit-font-smoothing: antialiased;
+		transition: width 0.8s ease 0s;
+	}
+}
+
+.menu {
+	list-style: none;
+    margin-top: 10px;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.collapsed > .menu li a {
+	margin-left:4px;
+}
+
+.collapsed > .menu > li {
+	width: 50px;
+}
+
+.menu  li {
+	height: 46px;
+	width: 250px;
+	cursor: pointer;
+}
+
+.menu li a {
+	display: flex;
+    padding: 12px;
+    white-space: nowrap;
+    color: inherit;
+    text-decoration: none;
+    -webkit-transition: padding .8s ease;
+    -moz-transition: padding .8s ease;
+    -o-transition: padding .8s ease;
+    transition: padding .8s ease;
+	-webkit-font-smoothing: antialiased;
+	margin-left: 12px;
+}
+
+.menuItemText {
+    margin-left: 20px;
+    flex: 1;
+}
+
+.menu li:hover  {
+    color: #fff;
+    background: #404351;
+}
+
+.menu.open li a {
+    //padding: 15px 25px 15px 30px;
+    // padding-left: 25px;
+}
+
+.menu.open li a {
+    /* padding: 15px 25px 15px 30px; */
+    //padding-left: 25px;
+}
+.dpLogo:hover {
+    background: #304e73;
+}
+
+.collapsed .dpLogo {
+	padding-left: 10px;
+}
+
+.collapsed .titleContainer {}
+
+.dpLogo {
+	height: 60px;
+	white-space: nowrap;
+	padding-left: 20px;
+	margin-bottom: 5px;
+	background: #313d54;
+
+	&--active {
+	cursor: pointer;
+	}
+	& > img {
+		width: 36px;
+		float: left;
+		margin-top: 12px;
+		-webkit-font-smoothing: antialiased;
+		transition: width 0.8s ease 0s;
+	}
+	
+	.titleContainer{
+		padding: 10px;
+	}
+
+	.titleContainer div{
+		margin-left: 40px;
+		white-space: nowrap;
+		color: #fff;
+		text-transform: uppercase;
+	}
+
+	.hwxText {
+		font-size: 18px;
+	}
+
+	.dpText {
+		margin-top: 5px;
+		text-transform: uppercase;
+	}
+
+	& > span {
+	text-transform: uppercase;
+	display: block;
+	word-wrap: break-word;
+	padding-left: 10px;
+	}
+}
+
+.expander {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: #303d54;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    color: #3fae2a;
+    font-size: 16px;
+    cursor: pointer;
+}

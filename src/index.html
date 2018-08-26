@@ -10,7 +10,11 @@
   <section id="index"></section>
   <script type="text/javascript" src="main.js"></script>
   <script>
-    DPSNav.init({id:"index"})
+    DPSNav.init({
+      id:"index", 
+      onCollapse:function(){console.log("Collapsed")}, 
+      onExpand:function(){console.log("Expanded")}
+    });
   </script>
 </body>  
 </body>

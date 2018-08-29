@@ -24,25 +24,18 @@ export default class App extends Component {
     this.state.collapsed? this.props.onCollapse(): this.props.onExpand();
   }
 
-  parseMenu(menuJson, depth = 0) {
-    console.log(this.state.collapsed)
-      const collapsed = this.state.collapsed;
-      return menuJson.map(menuItem => {
-        let subMenu = '';
-        if(menuItem.subMenu){
-          const newDepth = depth + 1;
-          subMenu = this.parseMenu(menuItem.subMenu, newDepth) 
-        }       
-        return(
-          <MenuItemWidget menuItem={menuItem} depth={depth} subMenu={subMenu} collapsed={collapsed}/>
-        )
-      })  
+  getMenuItems(menu, depth=0){
+    return menu.map(menuItem => {
+      return(
+        <MenuItemWidget menuItem={menuItem} depth={depth} subMenu={menuItem.subMenu.length?this.getMenuItems(menuItem.subMenu,++depth):''} collapsed={this.state.collapsed}/>      
+      )
+    })
   }
 
-  componentDidMount() {
+  componentWillMount() {
     let promise = this.props.standalone ? this.getMenu() : this.fetchMenu()
     promise.then(menuJson => {
-      this.setState({menu:this.parseMenu(menuJson)})
+      this.setState({menu: menuJson})
     });    
   }
 
@@ -56,6 +49,7 @@ export default class App extends Component {
   }
 
   render(props) {
+    let menu = this.state.menu
     return (
       <div className={classNames({[style.navContainer]: true, [style.collapsed]: this.state.collapsed})}>
         <div className={style.dpLogo}>
@@ -66,7 +60,7 @@ export default class App extends Component {
           </div>
         </div>
         <ul className={style.menu}>
-          { this.state.menu }
+          { this.getMenuItems(menu, 0) }
         </ul>
         <div onClick={()=>this.toggleSideNav()}  className={style.expander}>
           {

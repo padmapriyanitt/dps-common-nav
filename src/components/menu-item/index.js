@@ -9,29 +9,23 @@ export default class MenuItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            subMenuOpen: false,
+            subMenuOpen: false
         };
-    }
-
-    componentWillReceiveProps(someProp) {
-        console.log(someProp)
-        //this.setState({...this.state,someProp})
     }
 
     toggleSubMenu(){
         this.setState({
             subMenuOpen: !this.state.subMenuOpen
         });
-        console.log(this.state.subMenuOpen)
     }
+
     render() {
         let levelClass = style[`level${this.props.depth}`]
-        //console.log(this.props.collapsed);
         return(
             <li className={classNames({[`${levelClass}`]:true}, {[style.subMenu]:this.props.menuItem.subMenu.length > 0}, 
                 {[style.subMenuOpen]:this.state.subMenuOpen}, {[style.menuCollapsed]:this.props.collapsed})}>
             <a>
-                <i className={`${fontAwesome.fa} ${fontAwesome['fa-server']}`}></i>
+                <i className={`${fontAwesome.fa} ${fontAwesome[this.props.menuItem.icon]}`}></i>
                 <span className={style.menuItemText}>
                 {this.props.menuItem.displayName} 
                 {this.props.menuItem.subMenu && this.props.menuItem.subMenu.length ?

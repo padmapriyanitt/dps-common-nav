@@ -54,8 +54,8 @@ module.exports = {
           }
         ]
       },
-      {test: /\.(png|jpg)$/, use: 'file-loader'},
-      {test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/, use: 'file-loader'}
+      {test: /\.(png|jpg)$/, use: 'url-loader'},
+      {test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/, use: 'url-loader'}
     ]
   },
   plugins: [htmlWebpackPlugin, new CopyWebpackPlugin([{ from: 'src/assets/images', to: 'assets/images' }])]

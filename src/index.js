@@ -1,7 +1,7 @@
 import { h, render } from "preact";
 import habitat from "preact-habitat";
-import DPSNavWidget from "./components/nav-container";
+import DPSNavWidget from "./components/menu";
 
 export function init(options) {
-  render(<DPSNavWidget onCollapse={options.onCollapse} onExpand={options.onExpand}/>, document.getElementById(options.id));
+  render(<DPSNavWidget standalone={options.standalone} onCollapse={options.onCollapse} onExpand={options.onExpand}/>, document.getElementById(options.id));
 }

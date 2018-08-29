@@ -50,36 +50,6 @@ body {
 	width: 50px;
 }
 
-.menu  li {
-	height: 46px;
-	width: 250px;
-	cursor: pointer;
-}
-
-.menu li a {
-	display: flex;
-    padding: 12px;
-    white-space: nowrap;
-    color: inherit;
-    text-decoration: none;
-    -webkit-transition: padding .8s ease;
-    -moz-transition: padding .8s ease;
-    -o-transition: padding .8s ease;
-    transition: padding .8s ease;
-	-webkit-font-smoothing: antialiased;
-	margin-left: 12px;
-}
-
-.menuItemText {
-    margin-left: 20px;
-    flex: 1;
-}
-
-.menu li:hover  {
-    color: #fff;
-    background: #404351;
-}
-
 .menu.open li a {
     //padding: 15px 25px 15px 30px;
     // padding-left: 25px;

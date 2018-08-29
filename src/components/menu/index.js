@@ -33,16 +33,16 @@ export default class App extends Component {
   }
 
   componentWillMount() {
-    let promise = this.props.standalone ? this.getMenu() : this.fetchMenu()
+    let promise = this.props.standalone ? this.getMenu() : fetch('/api/menu').then(result => result.json())
     promise.then(menuJson => {
       this.setState({menu: menuJson})
     });    
   }
 
-  fetchMenu() {
-    fetch('/api/menu')
-    .then(result => result.json())
-  }
+  // fetchMenu() {
+  //   return fetch('/api/menu')
+  //   .then(result => result.json())
+  // }
 
   getMenu(){
     return new Promise((resolve, reject) => resolve(mockData))

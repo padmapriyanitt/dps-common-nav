@@ -75,46 +75,35 @@ body {
 	padding-left: 20px;
 	margin-bottom: 5px;
 	background: #313d54;
-
-	&--active {
-	cursor: pointer;
-	}
-	& > img {
-		width: 36px;
-		float: left;
-		margin-top: 12px;
-		-webkit-font-smoothing: antialiased;
-		transition: width 0.8s ease 0s;
-	}
-	
-	.titleContainer{
-		padding: 10px;
-	}
-
-	.titleContainer div{
-		margin-left: 40px;
-		white-space: nowrap;
-		color: #fff;
-		text-transform: uppercase;
-	}
-
-	.hwxText {
-		font-size: 18px;
-	}
-
-	.dpText {
-		margin-top: 5px;
-		text-transform: uppercase;
-	}
-
-	& > span {
-	text-transform: uppercase;
-	display: block;
-	word-wrap: break-word;
-	padding-left: 10px;
-	}
 }
 
+.logoImg {
+	width: 36px;
+	float: left;
+	margin-top: 12px;
+	-webkit-font-smoothing: antialiased;
+	transition: width 0.8s ease 0s;
+}
+
+.titleContainer{
+	padding: 10px;
+}
+
+.titleContainer div{
+	margin-left: 40px;
+	white-space: nowrap;
+	color: #fff;
+	text-transform: uppercase;
+}
+
+.hwxText {
+	font-size: 18px;
+}
+
+.dpText {
+	margin-top: 5px;
+	text-transform: uppercase;
+} 
 .expander {
     position: absolute;
     left: 0;

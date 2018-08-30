@@ -53,8 +53,8 @@ export default class App extends Component {
     return (
       <div className={classNames({[style.navContainer]: true, [style.collapsed]: this.state.collapsed})}>
         <div className={style.dpLogo}>
-          <img src={`/assets/images/dp-logo.png`}></img>
-          <div class={style.titleContainer}>
+          <img className={style.logoImg} src={`/assets/images/dp-logo.png`}></img>
+          <div className={style.titleContainer}>
             <div className={style.hwxText}><span>Hortonworks</span></div>
             <div className={style.dpText}><span>DataPlane</span></div>
           </div>

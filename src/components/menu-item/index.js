@@ -24,7 +24,7 @@ export default class MenuItem extends Component {
     render() {
         let levelClass = style[`level${this.props.depth}`]
         return(
-            <li className={classNames({[`${levelClass}`]:true}, {[style.subMenu]:this.props.menuItem.subMenu.length > 0}, 
+            <li className={classNames({[style.menuItem]:true},{[`${levelClass}`]:true}, {[style.subMenu]:this.props.menuItem.subMenu.length > 0}, 
                 {[style.subMenuOpen]:this.state.subMenuOpen}, {[style.menuCollapsed]:this.props.collapsed})}>
             <a href={this.props.menuItem.link}>
                 <i className={`${fontAwesome.fa} ${fontAwesome[this.props.menuItem.icon]}`}></i>

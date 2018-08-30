@@ -12,11 +12,11 @@
 }
 
 .level2{
-    
+    width: auto
 }
 
 .subMenu{
-
+    width: auto
 }
 
 .subMenu ul {
@@ -24,7 +24,7 @@
    overflow-x: hidden;
 }
 
-li a {
+.menuItem a {
 	display: flex;
     padding: 12px;
     white-space: nowrap;
@@ -38,15 +38,14 @@ li a {
 	margin-left: 12px;
 }
 
-li:hover  {
+.menuItem:hover  {
     color: #fff;
     background: #404351;
 }
 
-li {
+.menuItem {
     height: auto;
     min-height: 46px;
-	width: 250px;
 	cursor: pointer;
 }
 

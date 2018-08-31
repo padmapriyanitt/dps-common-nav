@@ -53,11 +53,11 @@ export default class App extends Component {
     return (
       <div className={classNames({[style.navContainer]: true, [style.collapsed]: this.state.collapsed})}>
         <div className={style.dpLogo}>
-          <img className={style.logoImg} src={`/assets/images/dp-logo.png`}></img>
-          <div className={style.titleContainer}>
-            <div className={style.hwxText}><span>Hortonworks</span></div>
-            <div className={style.dpText}><span>DataPlane</span></div>
-          </div>
+          <a href="">
+            <img className={style.logoImg} src={`/assets/images/dp-logo.png`}></img>
+            <div>Hortonworks</div>
+            <div>DataPlane</div>
+          </a>
         </div>
         <ul className={style.menu}>
           { this.getMenuItems(menu, 0) }

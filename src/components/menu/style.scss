@@ -26,12 +26,10 @@ body {
 	width: 50px;
 }
 
-.collapsed > .dpLogo {
-	& > img {
-		width: 30px;
-		-webkit-font-smoothing: antialiased;
-		transition: width 0.8s ease 0s;
-	}
+.collapsed > .logoImg {
+	width: 30px;
+	-webkit-font-smoothing: antialiased;
+	transition: width 0.8s ease 0s;
 }
 
 .menu {
@@ -42,68 +40,54 @@ body {
     overflow-x: hidden;
 }
 
-.collapsed > .menu li a {
-	margin-left:4px;
-}
-
-.collapsed > .menu > li {
-	width: 50px;
-}
-
-.menu.open li a {
-    //padding: 15px 25px 15px 30px;
-    // padding-left: 25px;
-}
-
-.menu.open li a {
-    /* padding: 15px 25px 15px 30px; */
-    //padding-left: 25px;
-}
 .dpLogo:hover {
     background: #304e73;
 }
 
-.collapsed .dpLogo {
-	padding-left: 10px;
+.collapsed .logoImg {
+	width: 30px;
 }
 
-.collapsed .titleContainer {}
+.collapsed .dpLogo {
+   padding-left: 10px;
+   padding-top: 15px;
+}
 
 .dpLogo {
-	height: 60px;
+	height: 33px;
 	white-space: nowrap;
-	padding-left: 20px;
-	margin-bottom: 5px;
+	overflow: hidden;
+	padding: 12px 10px 15px 20px;	
 	background: #313d54;
+	-webkit-transition: padding-left .8s ease, padding-top .8s ease;
+    -moz-transition: padding-left .8s ease, padding-top .8s ease;
+    -o-transition: padding-left .8s ease, padding-top .8s ease;
+    transition: padding-left .8s ease, padding-top .8s ease;
+    -webkit-font-smoothing: antialiased;
 }
 
 .logoImg {
 	width: 36px;
 	float: left;
-	margin-top: 12px;
 	-webkit-font-smoothing: antialiased;
 	transition: width 0.8s ease 0s;
 }
 
 .titleContainer{
-	padding: 10px;
 }
 
-.titleContainer div{
-	margin-left: 40px;
+.dpLogo div{
+	margin-left: 50px;
 	white-space: nowrap;
 	color: #fff;
 	text-transform: uppercase;
 }
 
-.hwxText {
-	font-size: 18px;
+.dpLogo div + div {
+    margin-top: 5px;
+    font-size: 16px;
 }
 
-.dpText {
-	margin-top: 5px;
-	text-transform: uppercase;
-} 
 .expander {
     position: absolute;
     left: 0;

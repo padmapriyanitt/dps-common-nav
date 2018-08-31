@@ -26,16 +26,23 @@
 
 .menuItem a {
 	display: flex;
-    padding: 12px;
     white-space: nowrap;
     color: inherit;
+    padding: 14px;    
     text-decoration: none;
     -webkit-transition: padding .8s ease;
     -moz-transition: padding .8s ease;
     -o-transition: padding .8s ease;
     transition: padding .8s ease;
 	-webkit-font-smoothing: antialiased;
-	margin-left: 12px;
+}
+
+.menuCollapsed.menuItem > ul{
+    display: none;
+}
+
+.menuCollapsed.menuItem a {
+    width: 50px;
 }
 
 .menuItem:hover  {
@@ -44,9 +51,7 @@
 }
 
 .menuItem {
-    height: auto;
-    min-height: 46px;
-	cursor: pointer;
+    cursor: pointer;
 }
 
 .menuCollapsed.subMenu > ul {
@@ -59,13 +64,11 @@
     width: 200px;
     border-left: 1px solid #666;
     font-size: 16px;
-    height: 46px;
-    /* max-height: 150px; */
+    max-height: 150px;
     overflow-y: auto;
 }
 
-.subMenu > ul {
-    display: none;
+.menuItem > ul {
     position: static;
     width: auto;
 }
@@ -78,15 +81,18 @@
     display: block;
     overflow: visible;
     margin-top: 0;
-    //position: static;
-    //overflow: visible;
-    //margin-top: 0;
-    //width: auto;
 }
 
 .subMenuIcon {
-	float: right;
-    -webkit-animation: sub-nav-o .8s;
-    animation: sub-nav-o .8s;
+    right: 15px;
+    position: absolute;
+    visibility: visible;
     opacity: 1;
+    transition-delay: 0.2s;
+}
+
+.menuCollapsed .subMenuIcon {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 0.33s, opacity 0.33s linear;
 }

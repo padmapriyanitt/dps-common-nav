@@ -4,22 +4,27 @@
 }
 
 .level0{
-
+    font-size: 16px;
 }
 
 .level1{
-    width: auto
+    font-size: 13px;
+    width: auto;
 }
 
 .level2{
     width: auto
 }
 
+.level2.subMenu {
+    border-left: none;
+}
+
 .subMenu{
     width: auto
 }
 
-.subMenu ul {
+.subMenu {
    list-style: none;
    overflow-x: hidden;
 }
@@ -39,7 +44,7 @@
 }
 
 .menuItem a .menuText {
-    margin-top: 14px;
+    margin-top: 10px;
     display: inline-block;
 }
 
@@ -60,6 +65,11 @@
     cursor: pointer;
 }
 
+.menuIcon {
+    font-size: 16px;
+    margin-top: 4px;
+}
+
 .menuItem.active > a,
 .menuItem.active:hover > a {
 	color: #3FAE2A;
@@ -68,11 +78,12 @@
 
 .activeIcon{
     left: 0;
+    margin-top: 4px;    
     position: absolute;
 	display: inline-block;
 	color: #3FAE2A;
 }
-.menuCollapsed.subMenu > ul {
+.menuCollapsed > .subMenu > ul {
     display: none;
     position: absolute;
     left: 50px;
@@ -80,7 +91,7 @@
     background: #323544;
     color: #b8bec4;
     width: 200px;
-    border-left: 1px solid #666;
+    border-left: none;
     font-size: 16px;
     max-height: 150px;
     overflow-y: auto;
@@ -90,28 +101,31 @@
     position: static;
     width: auto;
 }
-.collapsed > .subMenu > ul {
+.menuCollapsed.subMenu > ul {
     position: absolute;
     overflow: visible;
+    display: none;
 }
 
-.subMenu.subMenuOpen > ul {
+.subMenuOpen > ul {
     display: block;
     overflow: visible;
     margin-top: 0;
+    border-left: 1px solid #666;
 }
 
-.subMenuIcon {
+.subMenuExpander {
     right: 15px;
     height: 16px;
     width: 16px;
+    margin-top: 4px;
     position: absolute;
     visibility: visible;
     opacity: 1;
     transition-delay: 0.2s;
 }
 
-.menuCollapsed .subMenuIcon {
+.menuCollapsed .subMenuExpander {
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s linear 0.33s, opacity 0.33s linear;

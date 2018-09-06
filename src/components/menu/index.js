@@ -32,9 +32,12 @@ export default class App extends Component {
 
   getMenuItems(menu, depth=0){
     return menu.map(menuItem => {
+      //depth = depth + 1;
+      let currentDepth = menuItem.subMenu && menuItem.subMenu.length?depth+1:depth
+      console.log(menuItem.name, depth)
       return(
-        <MenuItemWidget onClick={this.setActive} menuItem={menuItem} depth={depth} isActive={this.state.activeMenuItem.id === menuItem.id}
-        subMenu={menuItem.subMenu && menuItem.subMenu.length ? this.getMenuItems(menuItem.subMenu,++depth):''} 
+        <MenuItemWidget onClick={this.setActive} menuItem={menuItem} depth={depth+1} isActive={this.state.activeMenuItem.id === menuItem.id}
+        subMenu={menuItem.subMenu && menuItem.subMenu.length ? this.getMenuItems(menuItem.subMenu, currentDepth):''} 
         collapsed={this.state.collapsed}/>      
       )
     })
@@ -46,11 +49,6 @@ export default class App extends Component {
       this.setState({menu: menuJson})
     });    
   }
-
-  // fetchMenu() {
-  //   return fetch('/api/menu')
-  //   .then(result => result.json())
-  // }
 
   getMenu(){
     return new Promise((resolve, reject) => resolve(mockData))

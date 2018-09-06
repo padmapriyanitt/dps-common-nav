@@ -12,22 +12,30 @@ export default class App extends Component {
     super(props);
     this.state = {
       collapsed: props.collapseOnInit ? props.collapseOnInit : false,
-      menu: []
+      menu: [],
+      activeMenuItem: {}
     };
+    this.setActive = this.setActive.bind(this)
   }
 
   toggleSideNav() {
     this.setState({
       collapsed: !this.state.collapsed
     });
-    console.log(this.state.collapsed)    
     this.state.collapsed? this.props.onCollapse(): this.props.onExpand();
+  }
+
+  setActive(menuItem) {
+    console.log(menuItem);
+    this.setState({activeMenuItem: menuItem})
   }
 
   getMenuItems(menu, depth=0){
     return menu.map(menuItem => {
       return(
-        <MenuItemWidget menuItem={menuItem} depth={depth} subMenu={menuItem.subMenu && menuItem.subMenu.length?this.getMenuItems(menuItem.subMenu,++depth):''} collapsed={this.state.collapsed}/>      
+        <MenuItemWidget onClick={this.setActive} menuItem={menuItem} depth={depth} isActive={this.state.activeMenuItem.id === menuItem.id}
+        subMenu={menuItem.subMenu && menuItem.subMenu.length ? this.getMenuItems(menuItem.subMenu,++depth):''} 
+        collapsed={this.state.collapsed}/>      
       )
     })
   }

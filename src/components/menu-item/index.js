@@ -11,6 +11,7 @@ export default class MenuItem extends Component {
         this.state = {
             subMenuOpen: false
         };
+        this.handleClick = this.handleClick.bind(this)
     }
 
     toggleSubMenu(e){
@@ -21,17 +22,26 @@ export default class MenuItem extends Component {
         });
     }
 
+    handleClick(e){
+        e.stopPropagation()
+        e.preventDefault();
+        this.props.onClick(this.props.menuItem)
+    }
+
     render() {
         let levelClass = style[`level${this.props.depth}`]
         return(
-            <li className={classNames({[style.menuItem]:true},{[`${levelClass}`]:true}, {[style.subMenu]:this.props.menuItem.subMenu && this.props.menuItem.subMenu.length > 0}, 
+            <li onClick={(e) =>this.handleClick(e)} className={classNames({[style.active]:this.props.isActive}, {[style.menuItem]:true},{[`${levelClass}`]:true}, {[style.subMenu]:this.props.menuItem.subMenu && this.props.menuItem.subMenu.length > 0}, 
                 {[style.subMenuOpen]:this.state.subMenuOpen}, {[style.menuCollapsed]:this.props.collapsed})}>
-            <a href={this.props.menuItem.link}>
-                <i className={`${fontAwesome.fa} ${fontAwesome[this.props.menuItem.icon]}`}></i>
-                <span className={style.menuItemText}>
-                {this.props.menuItem.displayName} 
-                {this.props.menuItem.subMenu && this.props.menuItem.subMenu.length ?
-                    <span onClick={(e)=>this.toggleSubMenu(e)}><i className={`${style.subMenuIcon} ${fontAwesome.fa} ${fontAwesome['fa-angle-down']}`}></i></span>:''}
+            <a>
+                <span className={`${style.menuText}`}>
+                    {this.props.isActive?<i className={`${style.activeIcon} ${fontAwesome.fa} ${fontAwesome['fa-caret-right']}`}></i>:''} 
+                    <i className={`${fontAwesome.fa} ${fontAwesome[this.props.menuItem.icon]}`}></i>
+                    <span className={style.menuItemText}>
+                    {this.props.menuItem.displayName} 
+                    {this.props.menuItem.subMenu && this.props.menuItem.subMenu.length ?
+                        <span onClick={(e)=>this.toggleSubMenu(e)}><i className={`${style.subMenuIcon} ${fontAwesome.fa} ${fontAwesome['fa-angle-down']}`}></i></span>:''}
+                    </span>
                 </span>
             </a>
             { this.state.subMenuOpen && this.props.menuItem.subMenu && this.props.menuItem.subMenu.length > 0? <ul> {this.props.subMenu} </ul>: '' }

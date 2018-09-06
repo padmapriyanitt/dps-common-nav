@@ -28,13 +28,19 @@
 	display: flex;
     white-space: nowrap;
     color: inherit;
-    padding: 14px;    
+    height: 46px;
+    padding: 0 14px;  
     text-decoration: none;
     -webkit-transition: padding .8s ease;
     -moz-transition: padding .8s ease;
     -o-transition: padding .8s ease;
     transition: padding .8s ease;
 	-webkit-font-smoothing: antialiased;
+}
+
+.menuItem a .menuText {
+    margin-top: 14px;
+    display: inline-block;
 }
 
 .menuCollapsed.menuItem > ul{
@@ -54,6 +60,18 @@
     cursor: pointer;
 }
 
+.menuItem.active > a,
+.menuItem.active:hover > a {
+	color: #3FAE2A;
+	background: #2d2f3c;
+}
+
+.activeIcon{
+    left: 0;
+    position: absolute;
+	display: inline-block;
+	color: #3FAE2A;
+}
 .menuCollapsed.subMenu > ul {
     display: none;
     position: absolute;

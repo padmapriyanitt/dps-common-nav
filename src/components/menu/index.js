@@ -26,15 +26,12 @@ export default class App extends Component {
   }
 
   setActive(menuItem) {
-    console.log(menuItem);
     this.setState({activeMenuItem: menuItem})
   }
 
   getMenuItems(menu, depth=0){
     return menu.map(menuItem => {
-      //depth = depth + 1;
-      let currentDepth = menuItem.subMenu && menuItem.subMenu.length?depth+1:depth
-      console.log(menuItem.name, depth)
+      let currentDepth = menuItem.subMenu && menuItem.subMenu.length? depth+1: depth
       return(
         <MenuItemWidget onClick={this.setActive} menuItem={menuItem} depth={depth+1} isActive={this.state.activeMenuItem.id === menuItem.id}
         subMenu={menuItem.subMenu && menuItem.subMenu.length ? this.getMenuItems(menuItem.subMenu, currentDepth):''} 

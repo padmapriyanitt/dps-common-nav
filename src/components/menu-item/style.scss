@@ -46,8 +46,8 @@
 }
 
 .menuItem:hover  {
-    color: #fff;
-    background: #404351;
+    // color: #fff;
+    // background: #404351;
 }
 
 .menuItem {
@@ -85,6 +85,8 @@
 
 .subMenuIcon {
     right: 15px;
+    height: 16px;
+    width: 16px;
     position: absolute;
     visibility: visible;
     opacity: 1;

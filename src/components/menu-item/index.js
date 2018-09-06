@@ -34,7 +34,7 @@ export default class MenuItem extends Component {
                     <span onClick={(e)=>this.toggleSubMenu(e)}><i className={`${style.subMenuIcon} ${fontAwesome.fa} ${fontAwesome['fa-angle-down']}`}></i></span>:''}
                 </span>
             </a>
-            { this.props.menuItem.subMenu.length > 0? <ul> {this.props.subMenu} </ul>: '' }
+            { this.state.subMenuOpen && this.props.menuItem.subMenu.length > 0? <ul> {this.props.subMenu} </ul>: '' }
             </li>
         )
     }

@@ -11,7 +11,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      collapsed: false,
+      collapsed: props.collapseOnInit ? props.collapseOnInit : false,
       menu: []
     };
   }
@@ -27,7 +27,7 @@ export default class App extends Component {
   getMenuItems(menu, depth=0){
     return menu.map(menuItem => {
       return(
-        <MenuItemWidget menuItem={menuItem} depth={depth} subMenu={menuItem.subMenu.length?this.getMenuItems(menuItem.subMenu,++depth):''} collapsed={this.state.collapsed}/>      
+        <MenuItemWidget menuItem={menuItem} depth={depth} subMenu={menuItem.subMenu && menuItem.subMenu.length?this.getMenuItems(menuItem.subMenu,++depth):''} collapsed={this.state.collapsed}/>      
       )
     })
   }

@@ -26,17 +26,20 @@ export default class App extends Component {
   }
 
   setActive(menuItem) {
-    this.setState({activeMenuItem: menuItem})
     if(this.props.navigate && typeof this.props.navigate === 'function'){
-      this.props.navigate(menuItem.link)
+      this.props.navigate(menuItem.link, this.props.urlPrefix && !menuItem.url.startsWith(this.props.urlPrefix))
+    }else{
+      window.location.href = menuItem.link
     }
+    this.setState({activeMenuItem: menuItem})    
   }
 
   getMenuItems(menu, depth=0){
     return menu.map(menuItem => {
       let currentDepth = menuItem.subMenu && menuItem.subMenu.length? depth+1: depth
       return(
-        <MenuItemWidget onClick={this.setActive} menuItem={menuItem} depth={depth+1} isActive={window.location.href.endsWith(menuItem.link)}
+        <MenuItemWidget onClick={this.setActive} menuItem={menuItem} depth={depth+1} 
+        isActive={this.state.activeMenuItem.id === menuItem.id || window.location.href.endsWith(menuItem.link)}
         subMenu={menuItem.subMenu && menuItem.subMenu.length ? this.getMenuItems(menuItem.subMenu, currentDepth):''} 
         collapsed={this.state.collapsed}/>      
       )

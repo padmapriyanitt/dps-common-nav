@@ -37,7 +37,7 @@ export default class MenuItem extends Component {
         return(
             <li onClick={(e) =>this.handleClick(e)} className={classNames({[style.active]:this.props.isActive}, {[style.menuItem]:true}, 
                 {[style.subMenuOpen]:this.state.subMenuOpen}, {[style.menuCollapsed]:this.props.collapsed})}>
-            <a href={this.props.menuItem.link}>
+            <a>
                 <span className={`${style.menuText}`}>
                     {this.props.isActive?<i className={`${style.activeIcon} ${fontAwesome.fa} ${fontAwesome['fa-caret-right']}`}></i>:''} 
                     <i className={`${style.menuIcon} ${fontAwesome.fa} ${menuIcon}`}></i>

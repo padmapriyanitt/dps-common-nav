@@ -27,6 +27,9 @@ export default class App extends Component {
 
   setActive(menuItem) {
     this.setState({activeMenuItem: menuItem})
+    if(this.props.navigate && typeof this.props.navigate === 'function'){
+      this.props.navigate(menuItem.link)
+    }
   }
 
   getMenuItems(menu, depth=0){
@@ -45,10 +48,6 @@ export default class App extends Component {
     promise.then(menuJson => {
       this.setState({menu: menuJson})
     });    
-  }
-
-  componentDidMount(){
-    console.log(window.url)    
   }
 
   getMenu(){

@@ -33,7 +33,7 @@ export default class App extends Component {
     return menu.map(menuItem => {
       let currentDepth = menuItem.subMenu && menuItem.subMenu.length? depth+1: depth
       return(
-        <MenuItemWidget onClick={this.setActive} menuItem={menuItem} depth={depth+1} isActive={this.state.activeMenuItem.id === menuItem.id}
+        <MenuItemWidget onClick={this.setActive} menuItem={menuItem} depth={depth+1} isActive={window.location.href.endsWith(menuItem.link)}
         subMenu={menuItem.subMenu && menuItem.subMenu.length ? this.getMenuItems(menuItem.subMenu, currentDepth):''} 
         collapsed={this.state.collapsed}/>      
       )
@@ -45,6 +45,10 @@ export default class App extends Component {
     promise.then(menuJson => {
       this.setState({menu: menuJson})
     });    
+  }
+
+  componentDidMount(){
+    console.log(window.url)    
   }
 
   getMenu(){

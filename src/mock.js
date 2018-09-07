@@ -6,7 +6,7 @@ let menu = [
         "link": "clusters",
         "parentId": 1,
         "position": 0,
-        "icon": "fa-server",
+        "icon": "fa fa-server",
         "subMenu": [
             {
                 "id": 3,
@@ -63,7 +63,7 @@ let menu = [
         "link": "cloud-manager",
         "parentId": 1,
         "position": 0,
-        "icon": "fa-cogs",
+        "icon": "fa fa-cogs",
         "subMenu": []
     }
 ]

@@ -30,13 +30,19 @@ export default class MenuItem extends Component {
 
     render() {
         let levelClass = style[`level${this.props.depth}`]
+        let menuIconClasses = this.props.menuItem.icon? this.props.menuItem.icon.split(" "):[];
+        let menuIcon = ''
+        menuIconClasses.forEach(element => {
+            menuIcon += (` ${fontAwesome[element]}`)
+            console.log(fontAwesome[element])
+        });
         return(
             <li onClick={(e) =>this.handleClick(e)} className={classNames({[style.active]:this.props.isActive}, {[style.menuItem]:true}, 
                 {[style.subMenuOpen]:this.state.subMenuOpen}, {[style.menuCollapsed]:this.props.collapsed})}>
-            <a>
+            <a href={this.props.menuItem.link}>
                 <span className={`${style.menuText}`}>
                     {this.props.isActive?<i className={`${style.activeIcon} ${fontAwesome.fa} ${fontAwesome['fa-caret-right']}`}></i>:''} 
-                    <i className={`${style.menuIcon} ${fontAwesome.fa} ${fontAwesome[this.props.menuItem.icon]}`}></i>
+                    <i className={`${style.menuIcon} ${fontAwesome.fa} ${menuIcon}`}></i>
                     <span className={style.menuItemText}>
                         {this.props.menuItem.displayName} 
                         {this.props.menuItem.subMenu && this.props.menuItem.subMenu.length ?

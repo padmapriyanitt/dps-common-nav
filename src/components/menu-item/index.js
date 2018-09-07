@@ -24,7 +24,6 @@ export default class MenuItem extends Component {
 
     handleClick(e){
         e.stopPropagation()
-        e.preventDefault();
         this.props.onClick(this.props.menuItem)
     }
 
@@ -34,7 +33,6 @@ export default class MenuItem extends Component {
         let menuIcon = ''
         menuIconClasses.forEach(element => {
             menuIcon += (` ${fontAwesome[element]}`)
-            console.log(fontAwesome[element])
         });
         return(
             <li onClick={(e) =>this.handleClick(e)} className={classNames({[style.active]:this.props.isActive}, {[style.menuItem]:true}, 

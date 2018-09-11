@@ -41,7 +41,7 @@ export default class App extends Component {
       console.log(menuItem);
       return(
         <MenuItemWidget onClick={this.setActive} menuItem={menuItem} depth={depth+1} 
-        isOpen={menuItem.isOpen}
+        subMenuOpen={menuItem.subMenuOpen}
         isActive={this.state.activeMenuItem.id === menuItem.id || window.location.href.endsWith(menuItem.link)}
         subMenu={menuItem.subMenu && menuItem.subMenu.length ? this.getMenuItems(menuItem.subMenu, currentDepth):''} 
         collapsed={this.state.collapsed}/>      
@@ -56,7 +56,7 @@ export default class App extends Component {
       subMenu.forEach(subMenuItem => {
         this.markMenusToOpen(subMenuItem, subMenuItem.subMenu);
         if(window.location.href.endsWith(subMenuItem.link)){
-          menuItem.isOpen = true;
+          menuItem.subMenuOpen = true;
         }
       });
     }        

@@ -9,7 +9,7 @@ export default class MenuItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            subMenuOpen: false
+            subMenuOpen: this.props.subMenuOpen
         };
         this.handleClick = this.handleClick.bind(this)
     }

@@ -57,6 +57,8 @@ export default class App extends Component {
         this.markMenusToOpen(subMenuItem, subMenuItem.subMenu);
         if(window.location.href.endsWith(subMenuItem.link)){
           menuItem.subMenuOpen = true;
+        }else{
+          menuItem.subMenuOpen = false;
         }
       });
     }        

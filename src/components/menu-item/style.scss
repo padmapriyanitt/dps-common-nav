@@ -11,9 +11,22 @@
     font-size: 13px;
     width: auto;
 }
+.level1 li a{
+    height: 33px;
+}
+.level1 li a span {
+    margin-top: 7px !important
+}
 
 .level2{
     width: auto
+}
+
+.level2 li a{
+    height: 20px;
+}
+.level2 li a span {
+    margin-top: 0px !important
 }
 
 .level2.subMenu {

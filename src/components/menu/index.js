@@ -37,13 +37,29 @@ export default class App extends Component {
   getMenuItems(menu, depth=0){
     return menu.map(menuItem => {
       let currentDepth = menuItem.subMenu && menuItem.subMenu.length? depth+1: depth
+      this.markMenusToOpen(menuItem, menuItem.subMenu)
+      console.log(menuItem);
       return(
         <MenuItemWidget onClick={this.setActive} menuItem={menuItem} depth={depth+1} 
+        isOpen={menuItem.isOpen}
         isActive={this.state.activeMenuItem.id === menuItem.id || window.location.href.endsWith(menuItem.link)}
         subMenu={menuItem.subMenu && menuItem.subMenu.length ? this.getMenuItems(menuItem.subMenu, currentDepth):''} 
         collapsed={this.state.collapsed}/>      
       )
     })
+  }
+
+  markMenusToOpen(menuItem, subMenu) {
+    if(!subMenu || subMenu.length === 0){
+      return;
+    }else {
+      subMenu.forEach(subMenuItem => {
+        this.markMenusToOpen(subMenuItem, subMenuItem.subMenu);
+        if(window.location.href.endsWith(subMenuItem.link)){
+          menuItem.isOpen = true;
+        }
+      });
+    }        
   }
 
   componentWillMount() {
